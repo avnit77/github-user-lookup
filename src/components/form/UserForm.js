@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { findUser } from '../../actions/userActions';
+import { fetchUser } from '../../actions/userActions';
 
 const UserForm = () => {
   const [username, setUsername] = useState('');
@@ -8,7 +8,7 @@ const UserForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(findUser(username));
+    dispatch(fetchUser(username));
   };
 
   return (

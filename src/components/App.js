@@ -5,15 +5,15 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import PostsPage from './posts/PostsPage';
-import PostDetail from './detail/PostDetail';
+import UserForm from './form/UserForm'
+import UserDetail from './detail/UserDetail';
 
 export default function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={PostsPage} />
-        <Route path="/:id" component={PostDetail} />
+        <Route exact path="/" component={UserForm} />
+        <Route path="/:id" component={UserDetail} />
       </Switch>
     </Router>
   );

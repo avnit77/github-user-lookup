@@ -5,7 +5,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import UserForm from './form/UserForm'
+import UserForm from './form/UserForm';
 import UserDetail from './detail/UserDetail';
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={UserForm} />
-        <Route path="/:id" component={UserDetail} />
+        <Route path="/:username" component={UserDetail} />
       </Switch>
     </Router>
   );

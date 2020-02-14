@@ -9,6 +9,8 @@ const UserForm = () => {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(fetchUser(username));
+    console.log(fetchUser(username), 'FUNCTION');
+
   };
 
   return (

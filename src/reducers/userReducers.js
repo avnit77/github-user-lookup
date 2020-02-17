@@ -1,13 +1,11 @@
 import { FETCH_USER } from '../actions/userActions';
 
-const initialState = {
-  user: {}
-};
+const initialState = {};
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
     case FETCH_USER:
-      return { ...state, list: action.payload };
+      return { ...state, user: action.payload };
     default:
       return state;
   }

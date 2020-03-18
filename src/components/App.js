@@ -1,20 +1,15 @@
-
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom';
+
 import UserForm from './form/UserForm';
 import UserDetail from './detail/UserDetail';
+import Header from './common/Header';
 
 export default function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={UserForm} />
-        <Route path="/:username" component={UserDetail} />
-      </Switch>
-    </Router>
+    <>
+      <Header />
+      <UserForm />
+      <UserDetail />
+    </>
   );
 }

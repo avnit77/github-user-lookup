@@ -1,1 +1,2 @@
-export const getUser = state => state.user;
+export const isLoadingUser = state => state.user.loading;
+export const selectUser = state => state.user.user;

@@ -1,24 +1,37 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getUser } from '../../selectors/userSelectors';
-import { fetchUser } from '../../actions/userActions';
+import React from 'react';
+import Loading from '../common/Loading';
+import { useSelector } from 'react-redux';
+import { isLoadingUser, selectUser } from '../../selectors/userSelectors';
+import styles from './UserDetail.css';
 
 const UserDetail = () => {
-  const { username } = useParams();
-  const dispatch = useDispatch();
-  const user = useSelector(getUser);
+  const loading = useSelector(isLoadingUser);
+  const user = useSelector(selectUser);
 
-  useEffect(() => {
-    dispatch(fetchUser(username));
-  }, []);
+  if(loading) return <Loading />;
 
+  const toRender = user ?
+
+    <section className={styles.User}>
+      <a href={user.html_url} target="blank"><img src={user.avatar_url} /></a>
+      <h4>{user.name}</h4>
+      <h6>{user.login}</h6>
+      <div>
+        <div>
+          <p>Followers:</p>
+          <p >{user.followers}</p>
+        </div>
+        <div>
+          <p>Following:</p>
+          <p>{user.following}</p>
+        </div>
+      </div>
+      <pre>{user.bio}</pre>
+    </section> : <div style={{ height: '100vh', display: 'block', margin: 'auto', color: 'white' }}></div>;
 
   return (
     <section>
-      <h1>{user.name}</h1>
-      <p>{user.followers}</p>
-      <p>{user.following}</p>
+      {toRender}
     </section>
   );
 };

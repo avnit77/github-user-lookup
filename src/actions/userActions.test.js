@@ -1,5 +1,5 @@
 
-import { fetchUser, FETCH_USER } from './userActions';
+import { fetchUser, FETCH_USER, FETCH_USER_LOADING } from './userActions';
 
 jest.mock('../services/getUser.js');
 
@@ -10,6 +10,9 @@ describe('userSearch actions', () => {
 
     return action(dispatch)
       .then(() => {
+        expect(dispatch).toHaveBeenCalledWith({
+          type: FETCH_USER_LOADING
+        });
         expect(dispatch).toHaveBeenCalledWith({
           type: FETCH_USER,
           payload:

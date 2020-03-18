@@ -1,11 +1,23 @@
-import { FETCH_USER } from '../actions/userActions';
+import { FETCH_USER_LOADING, FETCH_USER } from '../actions/userActions';
 import reducer from './userReducers';
 
 describe('user reducer', () => {
+  it('handles the fetch user loading action', () => {
+    const action = { type: FETCH_USER_LOADING };
+    const initialState = { loading: false, user: {} };
+
+    const newState = reducer(initialState, action);
+
+    expect(newState).toEqual({
+      loading: true,
+      user: {}
+    });
+  });
 
   it('handles the fetch user action', () => {
     const action = {
       type: FETCH_USER,
+      loading: false,
       payload: {
         login: 'octocat',
         id: 1,
@@ -46,6 +58,7 @@ describe('user reducer', () => {
     const newState = reducer(initialState, action);
 
     expect(newState).toEqual({
+      loading: false,
       user: {
         login: 'octocat',
         id: 1,

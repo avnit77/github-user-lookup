@@ -7,5 +7,5 @@ const request = path => {
     });
 };
 
-export const getUser = username => request(`/users/:${username}`);
-
+export const getUser = username => request(`/users/${username}`);
+export const getRepos = (username) => request(`/users/${username}/repos`);

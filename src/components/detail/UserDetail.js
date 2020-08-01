@@ -13,7 +13,7 @@ const UserDetail = () => {
   const toRender = user ?
 
     <section className={styles.User}>
-      <a href={user.html_url} target="blank"><img src={user.avatar_url} /></a>
+      <a href={user.url} target="blank"><img src={user.avatar_url} /></a>
       <h4>{user.name}</h4>
       <h6>{user.login}</h6>
       <div>
